@@ -34,6 +34,7 @@ body{
 }
 
 .board{
+    margin-top: 0px;
     height: 100vh;
     width: 100vw;
     display: grid;
@@ -142,3 +143,36 @@ body{
     background-color: #F2F5EA;
 }
 
+.winning-message{
+    display:none;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    color: #c8f6ff;
+    font-size: 5rem;
+    flex-direction: column;
+
+}
+.winning-message button{
+    font-size: 3rem;
+    border: 2px solid #c8f6ff;
+    border-radius: 30px;
+    color: #c8f6ff;
+    background-color: #2C363F;
+    font-family: 'Zen Loop', cursive;
+    cursor:pointer;
+}
+.winning-message button:hover{
+    border: 2px solid #2C363F;
+    color: #2C363F;
+    background-color: #c8f6ff;
+}
+
+.winning-message.show{
+    display: flex;
+}
