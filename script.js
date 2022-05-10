@@ -26,6 +26,7 @@ function startGame(){
     cellElements.forEach(cell =>{
         cell.classList.remove(x_Class)
         cell.classList.remove(circle_Class)
+        cell.removeEventListener('click',handleClick)
         cell.addEventListener('click',handleClick,{once:true})
     })
 
@@ -59,7 +60,7 @@ function endGame(draw){
         winningMessage.innerText='Draw!'
     }
     else{
-        winningMessage.innerText = `${xTurn ? "X's": "O's"} Win!`
+        winningMessage.innerText = `${xTurn ? "Player 1": "Player 2"} Wins!`
     }
     winningMessageElement.classList.add('show');
 }

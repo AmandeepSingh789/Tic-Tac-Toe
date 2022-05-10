@@ -13,7 +13,7 @@ body{
     margin:0;
     background-color: #2C363F;
     font-family: 'Zen Loop', cursive;
-    
+    overflow: hidden;
 }
 
 .heading{
@@ -34,8 +34,9 @@ body{
 }
 
 .board{
-    margin-top: 0px;
-    height: 100vh;
+    padding:0px;
+    margin: 0px;
+    height: 70vh;
     width: 100vw;
     display: grid;
     justify-content: center;
