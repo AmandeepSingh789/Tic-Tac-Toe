@@ -15,18 +15,22 @@ const WINNING_COMBINATIONS=[
 
 const winningMessage = document.querySelector('[data-winning-message-text]');
 const  winningMessageElement = document.getElementById('winningMessage');
-
+const restartBtn = document.getElementById('restartButton');
 let xTurn 
 
 startGame()
 
+restartBtn.addEventListener('click',startGame)
 function startGame(){
     xTurn=true;
     cellElements.forEach(cell =>{
+        cell.classList.remove(x_Class)
+        cell.classList.remove(circle_Class)
         cell.addEventListener('click',handleClick,{once:true})
     })
 
     setBoardHoverClass();
+    winningMessageElement.classList.remove('show');
 }
 
 function handleClick(e){
