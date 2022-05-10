@@ -32,27 +32,46 @@ function startGame(){
 function handleClick(e){
    const cell = e.target
    const currentClass = xTurn? x_Class:circle_Class;
+   placeMark(cell,currentClass);
+
    if(checkWin(currentClass)){
     endGame(false)
     console.log('wins')
    }
-   placeMark(cell,currentClass);
-   swapTurns();
-   setBoardHoverClass();
+
+   else if (isDraw()) {
+       endGame(true)
+   }
+
+   else{
+    swapTurns();
+    setBoardHoverClass();
+}
+   
 }
 
 function endGame(draw){
     if (draw){
-
+        winningMessage.innerText='Draw!'
     }
     else{
         winningMessage.innerText = `${xTurn ? "X's": "O's"} Win!`
     }
     winningMessageElement.classList.add('show');
 }
+
+function isDraw(){
+    return [...cellElements].every(cell =>{
+        return cell.classList.contains(x_Class) ||
+        cell.classList.contains(circle_Class)
+    })
+}
+
+
 function placeMark(cell,currentClass){
     cell.classList.add(currentClass)
 }
+
 function swapTurns(){
     xTurn= !xTurn;
 }
