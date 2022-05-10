@@ -4,10 +4,16 @@
 *,*::after,*::before{
     box-sizing:border-box;
 }
+
+:root{
+    --cell-size:200px;
+    --mark-size:calc(var(--cell-size)* 0.9);
+}
 body{
     margin:0;
     background-color: #2C363F;
     font-family: 'Zen Loop', cursive;
+    
 }
 
 .heading{
@@ -36,8 +42,44 @@ body{
     grid-template-columns: repeat(3,auto);
 }
 .cell{
-    width: 100px;
-    height: 100px;
-    background-color: white;
-    border: 1 px solid grey;
+    border-radius: 20px;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: #F2F5EA;
+    border: 2px solid #2C363F;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3){
+    border-top: none;
+}
+.cell:nth(3n+1){
+    border-left: none;
+}
+
+.cell:nth(3n+3){
+    border-right: none;
+}
+
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(9){
+    border-bottom: none;
+}
+
+.cell.x::before,
+.cell.x::after{
+    content: '';
+    width: calc(var(--mark-size)* .15);
+    height: var(--mark-size);
+    background-color: red;
+}
+
+.cell.x::before{
+    transform: rotate(45deg);
 }
