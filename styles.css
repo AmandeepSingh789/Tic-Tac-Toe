@@ -166,6 +166,7 @@ body{
     background-color: #2C363F;
     font-family: 'Zen Loop', cursive;
     cursor:pointer;
+    padding: 20px;
 }
 .winning-message button:hover{
     border: 2px solid #2C363F;
